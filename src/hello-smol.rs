@@ -46,12 +46,16 @@ fn main() -> Result<()> {
         thread::spawn(|| smol::run(future::pending::<()>()));
     }
 
-    let addr: SocketAddr = ([127, 0, 0, 1], 8000).into();
-
-    println!("Listening on http://{}", addr);
-
     // Start HTTP and HTTPS servers.
-    smol::run(listen(Async::<TcpListener>::bind(&addr)?))
+    //smol::run(listen(Async::<TcpListener>::bind(&addr)?))
+
+    smol::block_on(async {
+        let addr: SocketAddr = ([127, 0, 0, 1], 8000).into();
+
+        println!("Listening on http://{}", addr);
+
+        listen(Async::<TcpListener>::bind(&addr)?).await
+    })
 }
 
 /// Spawns futures.
