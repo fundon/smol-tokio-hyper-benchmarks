@@ -14,7 +14,6 @@ use std::io;
 use std::net::{Shutdown, SocketAddr, TcpListener, TcpStream};
 use std::pin::Pin;
 use std::task::{Context, Poll};
-use std::thread;
 
 use anyhow::{Error, Result};
 use futures::prelude::*;
@@ -41,21 +40,12 @@ async fn listen(listener: Async<TcpListener>) -> Result<()> {
 }
 
 fn main() -> Result<()> {
-    // Create an executor thread pool.
-    for _ in 0..num_cpus::get().max(1) {
-        thread::spawn(|| smol::run(future::pending::<()>()));
-    }
+    let addr: SocketAddr = ([127, 0, 0, 1], 8000).into();
 
-    // Start HTTP and HTTPS servers.
-    //smol::run(listen(Async::<TcpListener>::bind(&addr)?))
+    println!("Listening on http://{}", addr);
 
-    smol::block_on(async {
-        let addr: SocketAddr = ([127, 0, 0, 1], 8000).into();
-
-        println!("Listening on http://{}", addr);
-
-        listen(Async::<TcpListener>::bind(&addr)?).await
-    })
+    // Start HTTP server.
+    smol::run(listen(Async::<TcpListener>::bind(&addr)?))
 }
 
 /// Spawns futures.

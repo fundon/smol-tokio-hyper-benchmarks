@@ -3,20 +3,29 @@ name = "smol-tokio"
 version = "0.1.0"
 authors = ["Fangdun Cai <cfddream@gmail.com>"]
 edition = "2018"
+publish = false
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [[bin]]
-name = "hello-smol"
-path = "src/hello-smol.rs"
+name = "hello-smol-single"
+path = "src/hello-smol-single.rs"
 
 [[bin]]
-name = "hello-tokio"
-path = "src/hello-tokio.rs"
+name = "hello-smol-multi"
+path = "src/hello-smol-multi.rs"
+
+[[bin]]
+name = "hello-tokio-single"
+path = "src/hello-tokio-single.rs"
+
+[[bin]]
+name = "hello-tokio-multi"
+path = "src/hello-tokio-multi.rs"
 
 [dependencies]
 anyhow = "1.0.28"
-tokio = { version = "0.2.20", features = ["fs", "macros", "io-std", "rt-util", "rt-threaded", "sync", "time", "test-util"] }
+tokio = { version = "0.2.20", features = ["full"] }
 smol = "0.1.4"
 hyper = "0.13.5"
 futures = "0.3.4"
