@@ -24,6 +24,11 @@ npm i autocannon -g
 ```
 
 ### smol
+
+```
+autocannon 127.0.0.1:8000
+```
+
 ```
 λ autocannon 127.0.0.1:8000
 Running 10s test @ http://127.0.0.1:8000
@@ -71,6 +76,10 @@ Req/Bytes counts sampled once per second.
 ```
 
 #### tokio
+
+```
+autocannon 127.0.0.1:8001
+```
 
 ```
 λ autocannon 127.0.0.1:8001
