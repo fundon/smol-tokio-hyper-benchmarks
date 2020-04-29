@@ -5,17 +5,9 @@ smol - tokio
 
 `Listening on http://127.0.0.1:8000`
 
-```
-cargo run --bin hello-smol --release
-```
-
 ### tokio
 
 `Listening on http://127.0.0.1:8001`
-
-```
-cargo run --bin hello-tokio --release
-```
 
 ### benchmark
 
@@ -25,12 +17,16 @@ npm i autocannon -g
 
 #### smol
 
-
 ```
 autocannon 127.0.0.1:8000
 ```
 
 ##### debug
+
+```
+cargo run --bin hello-smol
+```
+
 
 ```
 λ autocannon 127.0.0.1:8000
@@ -56,6 +52,10 @@ Req/Bytes counts sampled once per second.
 ```
 
 ##### release
+
+```
+cargo run --bin hello-smol --release
+```
 
 ```
 λ autocannon 127.0.0.1:8000
@@ -112,6 +112,10 @@ autocannon 127.0.0.1:8001
 ##### debug
 
 ```
+cargo run --bin hello-tokio
+```
+
+```
 λ autocannon 127.0.0.1:8001
 Running 10s test @ http://127.0.0.1:8001
 10 connections
@@ -135,6 +139,10 @@ Req/Bytes counts sampled once per second.
 ```
 
 ##### release
+
+```
+cargo run --bin hello-tokio --release
+```
 
 ```
 λ autocannon 127.0.0.1:8001
