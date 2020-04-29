@@ -3,7 +3,7 @@
 //! Run with:
 //!
 //! ```
-//! cargo run --bin hello-tolio --release
+//! cargo run --bin hello-tokio --release
 //! ```
 //!
 //! Open in the browser any of these addresses:
