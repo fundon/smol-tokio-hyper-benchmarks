@@ -1,8 +1,8 @@
 ## smol vs tokio with hyper benchmarks
 
-Debug VS Release
+**Debug** VS **Release**
 
-Single-thread VS Multi-thread
+**Single-threaded** VS **Multi-threaded**
 
 `$ npm i autocannon -g`
 
@@ -10,9 +10,9 @@ Single-thread VS Multi-thread
 
 Listening on http://127.0.0.1:8000
 
-#### single-thread
+#### single-threaded
 
-0. Debug
+0. __Debug__
 
 `$ cargo run --bin hello-smol-single`
 
@@ -39,7 +39,7 @@ Req/Bytes counts sampled once per second.
 31k requests in 11.03s, 2.76 MB read
 ```
 
-1. Release
+1. __Release__
 
 `$ cargo run --bin hello-smol-single --release`
 
@@ -66,9 +66,9 @@ Req/Bytes counts sampled once per second.
 826k requests in 11.05s, 72.7 MB read
 ```
 
-#### multi-thread
+#### multi-threaded
 
-0. Debug
+0. __Debug__
 
 `cargo run --bin hello-smol-multi`
 
@@ -95,7 +95,7 @@ Req/Bytes counts sampled once per second.
 125k requests in 11.03s, 11 MB read
 ```
 
-1. Release
+1. __Release__
 
 `$ cargo run --bin hello-smol-multi --release`
 
@@ -126,11 +126,9 @@ Req/Bytes counts sampled once per second.
 
 Listening on http://127.0.0.1:8001
 
-#### debug
+#### single-threaded
 
-#### single-thread
-
-0. Debug
+0. __Debug__
 
 `$ cargo run --bin hello-tokio-single`
 
@@ -157,7 +155,7 @@ Req/Bytes counts sampled once per second.
 212k requests in 11.04s, 18.7 MB read
 ```
 
-1. Release
+1. __Release__
 
 `$ cargo run --bin hello-tokio-single --release`
 
@@ -184,9 +182,9 @@ Req/Bytes counts sampled once per second.
 828k requests in 11.04s, 72.9 MB read
 ```
 
-#### multi-thread
+#### multi-threaded
 
-0. Debug
+0. __Debug__
 
 `$ cargo run --bin hello-tokio-multi`
 
@@ -213,7 +211,7 @@ Req/Bytes counts sampled once per second.
 477k requests in 11.04s, 42 MB read
 ```
 
-1. Release
+1. __Release__
 
 `$ cargo run --bin hello-tokio-multi --release`
 
